@@ -170,6 +170,7 @@ var fetchGyarados = function() {
                     $(".poke").append(newImgEl);
                 })
             }
+            
         })
 }
 
