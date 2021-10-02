@@ -6,20 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon battle_screen</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header class="intro">
-        <h1 class="display-1"></h1>
-        <nav>
-            <a class="ball">
-                <img src="./assets/images/battlescreen.png" alt=" screen for battle screen page "/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="test.html">
+            <img src="./assets/images/Simulator logo.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="test.html">
+              <strong>Home</strong>
             </a>
-        
-        </nav>
-    </header>
-    <div id="battleRecord">
-        <a href="index.html" class="button">Home</a>
+      
+            <a class="navbar-item" href="battle_screen.html" style="display: none">
+              <strong>Click Here to Begin!</strong>
+            </a>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-danger" href="">
+                  <strong>Battle Records</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+</head>
+<body id="bScreen">
+    <div class="tile is-ancestor ancestorbg">
+        <div class="tile is-parent is-vertical is-8 bg">
+            <article class="tile is-child notification is-dark box bg">
+            <p class="title"></p>
+            <p class="subtitle"></p>
+            <figure class="images">
+                <img src="./assets/images/battlescreen.png">
+            </figure>
+            </article>
+        </div>
     </div>
-
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+    <!--Credits Section-->
 </body>
 </html>

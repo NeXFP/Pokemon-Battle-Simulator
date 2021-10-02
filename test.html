@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Battle Simulator</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="test.html">
+          <img src="./assets/images/Simulator logo.png" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="test.html">
+            <strong>Home</strong>
+          </a>
+    
+          <a class="navbar-item" href="battle_screen.html">
+            <strong>Click Here to Begin!</strong>
+          </a>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-danger" href="">
+                <strong>Battle Records</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>
+</head>
+<body>
+    
+    <article class="message is-small is-danger">
+        <div class="message-header">
+            <p>Welcome Pokémon Trainers! This application will be a battle simulator where you may choose 1 of 6 pokemon in which your opponent will have a random pokemon assigned. In this application
+              your attacks are randomized in that you can either miss, get a super effective attack, not very effective attack and a normal attack. To finish the battle, either you or the opponent must have
+              their HP reduced from 100 to 0. Now you should be ready to begin your first battle. Click the button at the top to begin and if needed, feel free to look at our github profiles at the bottom of the page. Thank you and battle on!</p>
+            <button class="delete" aria-label="delete"></button>
+        </div>
+    </article>
+    <article class="intro">
+       <div class="bg-img is-flex">
+           <img class="img-responsive" src="assets/images/emeraldend.jpg"/>
+       </div>
+    </article>
+    <!-- Adding jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+    <!--Credits Section-->
+    <div class="hero-foot is-dark">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+                <ul>
+                    <li><a href="https://github.com/asadg7" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Alex</a></li>
+                    <li><a href="https://github.com/ChidoGang" class="nav-item nav-right button is-dark is-inverted is-outlined" target="_blank">Edgar</a></li>
+                    <li><a href="https://github.com/NeXFP" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Gio</a></li>
+                </ul>
+            </div>
+        </nav>
+     </div> 
+</body>
+</html>
