@@ -195,3 +195,4 @@ fetchBlastoise();
 fetchVenusaur();
 
 fetchCharizard();
+
