@@ -46,7 +46,10 @@ var userPokeObj = {};
 
 var enemyPokeObj = {};
 
-var currentDiceRoll;
+var wins = 0;
+var losses = 0;
+
+var battleRecords = [];
 
 //create fetch request to display the 6 pokemon
 var fetchPokemon = function(poke) {
@@ -229,12 +232,24 @@ var checkHealth = function() {
 
     if (userPokeObj.health <= 0) {
         //game over you lose
+        losses++;
+        $("#battle-div").empty();
+        $("#win-lose").text("You Lose!");
+        $("#game-over").css("display", "flex");
+        $("#game-over").show();
 
     }
     else if (enemyPokeObj.health <= 0) {
         // game over you win!
+        wins++;
+        $("#battle-div").empty();
+        $("#win-lose").text("You Win!");
+        $("#game-over").css("display", "flex");
+        $("#game-over").show();
     }
 }
+
+
 
 var selectPokemon = function(event) {
 
@@ -242,9 +257,6 @@ var selectPokemon = function(event) {
     var parent = target.parentElement;
     $(target).remove();
     $(parent).remove();
-
-    $("#user-poke").append(target);
-
 
     $("#show-poke").off("click");
 
@@ -269,7 +281,11 @@ var selectPokemon = function(event) {
     }
 
     $("#show-poke").on("click", selectEnemy);
-    console.log(userPokeObj);
+    
+    var newImg = $("<img/>");
+    newImg.attr("src", userPokeObj.back);
+    newImg.attr("id", "user-back");
+    $(".images").append(newImg);
 }
 
 var selectEnemy = function(event) {
@@ -279,9 +295,6 @@ var selectEnemy = function(event) {
 
     $(target).remove();
     $(parent).remove();
-
-    $("#enemy-poke").append(target);
-
     $("#show-poke").off("click");
     $("#show-poke").empty();
 
@@ -304,17 +317,68 @@ var selectEnemy = function(event) {
     else if (imgSrc === gyaradosObj.front) {
         enemyPokeObj = gyaradosObj;
     }
-    console.log(enemyPokeObj);
 
-    fightSequence();
+    var newImg = $("<img/>");
+    newImg.attr("src", enemyPokeObj.front);
+    newImg.attr("id", "enemy-front");
+    $(".images").append(newImg);
+
+    var newBtn = $("<button></button>");
+    newBtn.attr("id", "attack-btn");
+    newBtn.attr("class", "column is-12");
+    newBtn.html("Attack!");
+    $(".images").append(newBtn);
 }
 
 var fightSequence = function() {
-    
-    for (var i = 0; i < 20; i++) {
-        userAttack("d4");
-        enemyAttack("d4");
+
+    if (userPokeObj.health > 0 && enemyPokeObj.health > 0) {
+        for (var i = 0; i < 20; i++) {
+            userAttack("d4");
+            enemyAttack("d4");
+        }
     }
+    
+    
+}
+
+var addBattle = function() {
+    var input = $("#name-input").val().trim();
+
+    if (input === "") {
+        // tell user it cannot be left blank!
+        return;
+    }
+    else {
+        battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
+    }
+
+    battleRecords.push({
+        name: input,
+        wins: wins,
+        losses: losses
+    })
+
+    saveBattle();
+    viewBattles();
+}
+
+var saveBattle = function() {
+    localStorage.setItem("Battle Records", JSON.stringify(battleRecords));
+}
+
+var viewBattles = function() {
+    $("#game-over").empty();
+
+    var newList = $("<ol></ol>");
+    $("#game-over").append(newList);
+
+    for (i = 0; i < battleRecords.length; i++) {
+        var newLi = $("<li></li>");
+        newLi.html(battleRecords[i].name + "</br> Wins: " + battleRecords[i].wins + " Losses: " + battleRecords[i].losses);
+        $(newList).append(newLi);
+    }
+
 }
 
 
@@ -322,5 +386,6 @@ var fightSequence = function() {
 fetchAll();
 $("#to-battle").on("click", fetchAll);
 
-
 $("#show-poke").on("click", selectPokemon);
+
+$("#game-over-form").on("submit", addBattle);

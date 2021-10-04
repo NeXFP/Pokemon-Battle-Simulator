@@ -45,22 +45,28 @@
     </nav>
 </head>
 <body id="bScreen">
+
     <div class="tile is-ancestor ancestorbg">
-      <div class="row" id="show-poke">
-        <div class="row" id="poke-vs"></div>
+      <div id="game-over">
+        <h3 id="win-lose"></h3>
+        <form id="game-over-form">
+          <input id="name-input" type="text" autofocus="true" placeholder="Enter Your Name"/>
+          <button type="submit">Save Battle!</button>
+        </form>
       </div>
-        <div class="tile is-parent is-vertical is-8 bg">
+      <div class="row" id="show-poke">
+      </div>
+        <div class="tile is-parent is-vertical is-8 bg" id="battle-div">
             <article class="tile is-child notification is-dark bg">
             <p class="title"></p>
             <p class="subtitle"></p>
-            <figure class="images">
-              <div id="user-poke"></div>
-                <img src="./assets/images/battlescreen.png">
-              <div id="enemy-poke"></div>
+            <figure class="images column is-4 is-centered">
+                <img src="./assets/images/battlescreen.png" id="battlefield">
             </figure>
             </article>
         </div>
     </div>
+    
      
     <!--Credits Section-->
     <div class="hero-foot is-dark">

@@ -20,11 +20,24 @@ body {
     -o-background-size: cover;
     background-size: cover;
     background-position: 100%;
-    background-repeat:  no-repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     min-height: 100%;
     height: 100vh;
+}
+
+#game-over {
+    display: none;
+    align-items: center;
+}
+
+#win-lose {
+    color: red;
+}
+
+#game-over li {
+    color: red;
 }
 
 header h1 {
@@ -100,7 +113,7 @@ a.button {
     -o-background-size: cover;
     background-size: cover;
     background-position: 100%;
-    background-repeat:  no-repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     
@@ -121,6 +134,30 @@ a.button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+#battlefield {
+    position: relative;
+}
+
+#user-back {
+    position: absolute;
+    left: 350px;
+    top: 130px;
+    width: 130px;
+    height: 130px;
+}
+
+#enemy-front {
+    position: absolute;
+    left: 615px;
+    top: 10px;
+    width: 130px;
+    height: 130px;
+}
+
+#attack-btn {
+    width: 100%;
 }
 
 .tile {
