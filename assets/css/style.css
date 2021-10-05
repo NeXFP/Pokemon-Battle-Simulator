@@ -123,6 +123,23 @@ body {
     height: 40px;
 }
 
+/* Custom Scroll */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #363636;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #363636;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f14668;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
