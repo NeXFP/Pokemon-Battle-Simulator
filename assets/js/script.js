@@ -170,32 +170,31 @@ var selectPokemon = function(event) {
     else {
         return;
     }
-    
-    if (imgSrc === charizardObj.front) {
-        userPokeObj = charizardObj;
-    }
-    else if (imgSrc === venusaurObj.front) {
-        userPokeObj = venusaurObj;
-    }
-    else if (imgSrc === mewObj.front) {
-        userPokeObj = mewObj;
-    }
-    else if (imgSrc === blastoiseObj.front) {
-        userPokeObj = blastoiseObj;
-    }
-    else if (imgSrc === dragoniteObj.front) {
-        userPokeObj = dragoniteObj;
-    }
-    else if (imgSrc === gyaradosObj.front) {
-        userPokeObj = gyaradosObj;
+
+    var spriteArray = [
+        {sprite: charizardObj.front,
+        name: "char"},
+        {sprite: venusaurObj.front,
+        name: "ven"},
+        {sprite: mewObj.front,
+        name: "mew"},
+        {sprite: blastoiseObj.front,
+        name: "blas"},
+        {sprite: dragoniteObj.front,
+        name: "drag"},
+        {sprite: gyaradosObj.front,
+        name: "gyar"}
+    ]
+
+    for (i = 0; i < spriteArray.length; i++) {
+        if (imgSrc === spriteArray[i].sprite) {
+            var newSrc = "./assets/images/poke-permutations/" + spriteArray[i].name + ".png";
+            $("#battlefield").attr("src", newSrc);
+            break;
+        }
     }
 
     $("#show-poke").on("click", selectEnemy);
-    
-    var newImg = $("<img/>");
-    newImg.attr("src", userPokeObj.back);
-    newImg.attr("id", "user-back");
-    $("#place-poke").prepend(newImg);
     $("#battle-header").text("Choose Your Opponent!");
 }
 
@@ -219,36 +218,52 @@ var selectEnemy = function(event) {
     else {
         return;
     }
-    
-    if (imgSrc === charizardObj.front) {
-        enemyPokeObj = charizardObj;
-    }
-    else if (imgSrc === venusaurObj.front) {
-        enemyPokeObj = venusaurObj;
-    }
-    else if (imgSrc === mewObj.front) {
-        enemyPokeObj = mewObj;
-    }
-    else if (imgSrc === blastoiseObj.front) {
-        enemyPokeObj = blastoiseObj;
-    }
-    else if (imgSrc === dragoniteObj.front) {
-        enemyPokeObj = dragoniteObj;
-    }
-    else if (imgSrc === gyaradosObj.front) {
-        enemyPokeObj = gyaradosObj;
+
+    var spriteArray = [
+        {sprite: charizardObj.front,
+        name: "char"},
+        {sprite: venusaurObj.front,
+        name: "ven"},
+        {sprite: mewObj.front,
+        name: "mew"},
+        {sprite: blastoiseObj.front,
+        name: "blas"},
+        {sprite: dragoniteObj.front,
+        name: "drag"},
+        {sprite: gyaradosObj.front,
+        name: "gyar"}
+    ]
+
+    for (i = 0; i < spriteArray.length; i++) {
+        if (imgSrc === spriteArray[i].sprite) {
+            var findSource = $("#battlefield").attr("src");
+            stringCheck(findSource, spriteArray[i].name);
+            break;
+        }
     }
 
-    var newImg = $("<img/>");
-    newImg.attr("src", enemyPokeObj.front);
-    newImg.attr("id", "enemy-front");
-    $("#place-poke").append(newImg);
     $("#battle-header").text("Click the Attack Button to Begin!");
 
     var newBtn = $("<button></button>");
     newBtn.attr("id", "attack-btn");
     newBtn.html("Attack!");
     $("#fight-btn").append(newBtn);
+
+    $("#user-health").css("display", "block");
+    $("#enemy-health").css("display", "block");
+}
+
+var stringCheck = function(substring, pokename) {
+
+    stringArray = ["char", "mew", "ven", "blas", "gyar", "drag"];
+
+    for (i = 0; i < stringArray.length; i++) {
+        if (substring.includes(stringArray[i])) {
+            var imageSource = "./assets/images/poke-permutations/" + stringArray[i] + "_vs_" + pokename + ".png";
+            $("#battlefield").attr("src", imageSource);
+            break;
+        }
+    }
 }
 
 var userAttack = function(sides) {
@@ -267,21 +282,21 @@ var userAttack = function(sides) {
                     else if (dice === 2) {
                         // regular attack
                         enemyStats.health -= userStats.attack;
-                        $("#battle-header").text("You attacked for 20 HP!");
+                        $("#battle-header").text("You hit a normal attack for 20 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
                         checkHealth();
                     }
                     else if (dice === 3) {
                         // super effective attack
                         enemyStats.health -= userStats.effective;
-                        $("#battle-header").text("You attacked for 40 HP!");
+                        $("#battle-header").text("You hit a super effective attack for 40 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
                         checkHealth();
                     }
                     else if (dice === 4) {
                         // not very effective attack
                         enemyStats.health -= userStats.noteffective;
-                        $("#battle-header").text("You attacked for 5 HP!");
+                        $("#battle-header").text("You hit a not very effective attack for 5 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
                         checkHealth();
                     }
@@ -309,7 +324,7 @@ var enemyAttack = function(sides) {
                     if (dice === 1) {
                         // miss attack
                         setTimeout (function() {
-                            $("#battle-header").text("Your opponent missed!");
+                            $("#battle-header").text("Your opponent missed their attack!");
                         }, 1000*2);
                         return;
                     }
@@ -317,7 +332,7 @@ var enemyAttack = function(sides) {
                         // regular attack
                         userStats.health -= enemyStats.attack;
                         setTimeout (function() {
-                            $("#battle-header").text("You were attacked for 20 HP!");
+                            $("#battle-header").text("Your opponent hit a normal attack for 20 HP!");
                             $("#user-health").css("width", userStats.health + "%");
                         }, 1000*2);
                         checkHealth();
@@ -326,7 +341,7 @@ var enemyAttack = function(sides) {
                         // super effective attack
                         userStats.health -= enemyStats.effective;
                         setTimeout (function() {
-                            $("#battle-header").text("You were attacked for 40 HP!");
+                            $("#battle-header").text("Your opponent hit a super effective attack for 40 HP!");
                             $("#user-health").css("width", userStats.health + "%");
                         }, 1000*2);
                         checkHealth();
@@ -335,7 +350,7 @@ var enemyAttack = function(sides) {
                         // not very effective attack
                         userStats.health -= enemyStats.noteffective;
                         setTimeout (function() {
-                            $("#battle-header").text("You were attacked for 5 HP!");
+                            $("#battle-header").text("Your opponent hit a not very effective attack for 5 HP!");
                             $("#user-health").css("width", userStats.health + "%");
                         }, 1000*2);
                         checkHealth();
