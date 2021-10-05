@@ -268,7 +268,7 @@ var stringCheck = function(substring, pokename) {
 
 var userAttack = function(sides) {
     
-    var apiUrl = "http://roll.diceapi.com/json/" + sides;
+    var apiUrl = "https://roll.diceapi.com/json/" + sides;
     fetch(apiUrl)
         .then(function(response) {
             if (response.ok) {
@@ -315,7 +315,7 @@ var userAttack = function(sides) {
 
 var enemyAttack = function(sides) {
 
-    var apiUrl = "http://roll.diceapi.com/json/" + sides;
+    var apiUrl = "https://roll.diceapi.com/json/" + sides;
     fetch(apiUrl)
         .then(function(response) {
             if (response.ok) {
