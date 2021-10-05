@@ -1,18 +1,39 @@
-* {
-    background-size: cover;
-    color: #363636;
-}
+/* Styles Applying to the entire site */
 
 body {
-    background-color: #363636;
     font-style: oblique;
-    display: inherit;
     font-family: sans-serif;
-    color: #363636;
-    background-size: cover;
-    min-height: 100%;
+}
+
+
+/* Homepage CSS */
+
+.is-fullheight-100vh {
     height: 100vh;
 }
+
+.hero-background {
+    height: 80vh;
+}
+
+.is-vcentered {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.is-vcentered a {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 35px;
+}
+
+#welcome-button {
+    z-index: 1000;
+}
+
+/* Battle Screen CSS */
 
 #bScreen {
     -webkit-background-size: cover;
@@ -20,181 +41,96 @@ body {
     -o-background-size: cover;
     background-size: cover;
     background-position: 100%;
-    background-repeat:  no-repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    min-height: 100%;
-    height: 100vh;
+    background-image: url(../images/bg2.png);
 }
 
-header h1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#show-poke h2 {
+    text-align: center;
+    font-size: 24px;
+    color: white;
 }
 
-footer h4 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+#show-poke img {
+    opacity: 70%;
 }
 
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: initial;
-    justify-content: center;
+#show-poke img:hover {
+    opacity: 100%;
 }
 
-
-.ball {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#battle-header {
+    font-size: 30px;
+    color: white;
 }
 
-.rule {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 5%;
-    text-shadow: 2px 2px 3px black;
+#fight-btn button {
+    width: 33%;
+    height: 45px;
 }
 
-.btn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-shadow: 2px 2px 3px 1px rgb(228, 228, 228);
+.yellow-bg {
+    background-color: yellow;
 }
 
-.btn-group button {
-   background-color:#6a92f2;
-   border: 1px solid #f3fcff;
-   color: #f3fcff;
-   padding: 6px 18px;
-   cursor: pointer;
-   float: left;
-   margin-bottom: auto;
+#enemy-health {
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
 }
 
-.btn-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#user-health {
+    width: 100%;
+    background-color: green;
+    color: white;
+    text-align: center;
 }
 
-.pokestart {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.game-over {
+    display: none;
+    margin-top: 400px;
 }
 
-.bg-img { 
-    background-image: url(../images/emeraldend.jpg) ;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: 100%;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    
+.game-over input,
+.game-over button {
+    width: 20%;
+    height: 35px;
 }
 
-.img-responsive {
-    display: flex; 
-    max-width: 100%;
-    min-height: 100%;
+#win-lose {
+    font-size: 24px;
+    color: white;
+}
+.battle-records {
+    display: none;
+    margin-top: 100px;
+    color: white;
 }
 
-.hero-foot {
+#list-header {
+    font-size: 24px;
+}
+
+.footer {
     background-color: #363636;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
 }
 
-.images {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
+/* Media Queries */
 
-.tile {
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15%;
-    background-image: url(../images/bg2.png)
-}
-
-.ancestorbg {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: 100%;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100%;
-    height: 90vh;
-}
-
-.bg {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: 100%;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100%;
-    height: 25%;
-}
-
-::-webkit-scrollbar {
-    width: 7px;
-    background: #363636;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #363636;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #f14668;
-  }
-
-  
-
-@media screen and (max-width: 2160px) {
-  body {
-      background-color: #363636;
-  }
-};
-
-@media screen and (max-width: 1080px) {
-    body {
-        background-color: #363636;
+@media screen and (max-width: 768px) {
+    .hero-background {
+        height: 70vh;
     }
-};
+}
 
-@media screen and (max-width: 760px) {
-    body {
-        background-color: #363636;
+@media screen and (max-width: 575px) {
+    .hero-background {
+        height: 40vh;
     }
-};
-
-@media screen and (max-width: 480px) {
-    body {
-        background-color: #363636;
-    }
-};
+}
