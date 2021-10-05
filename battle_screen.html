@@ -5,43 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon battle_screen</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="index.html">
-            <img src="./assets/images/Simulator logo.png" width="112" height="28">
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+</head>
+
+<body class="is-fullheight-100vh" id="bScreen">
+
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <img src="./assets/images/Simulator logo.png" width="112" height="28">
+      </a>
+    </div>
+  
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-danger" id="view-battles">
+            <strong>Battle Records</strong>
           </a>
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="index.html">
-              <strong>Home</strong>
-            </a>
-      
-            <a class="navbar-item" href="battle_screen.html" style="display: none">
-              <strong>Click Here to Begin!</strong>
-            </a>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-danger" href="">
-                  <strong>Battle Records</strong>
-                </a>
-              </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="fetch-modal">
+      <div class="modal" id="bad-fetch">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="content">
+              <p>The API Server could not be reached. </br> 
+              Please check your internet connection and try again.</p>
             </div>
           </div>
         </div>
+        <button class="modal-close is-large" aria-label="close" id="close-fetch"></button>
+      </div>
+    </section>
+
+    <section class="input-modal">
+      <div class="modal" id="bad-input">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="content">
+              <p>You cannot leave your name blank!</p>
+            </div>
+          </div>
+        </div>
+<<<<<<< HEAD
     </nav>
 </head>
 <body id="bScreen">
@@ -60,24 +76,70 @@
                 <img src="./assets/images/battlescreen.png">
             </figure>
             </article>
+=======
+        <button class="modal-close is-large" aria-label="close" id="close-input"></button>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="columns is-12 has-text-centered" id="show-poke">
+      </div>
+      <div class="column is-12 has-text-centered">
+        <h3 id="battle-header">Choose Your Pokémon!</h3>
+      </div>
+      <div class="column is-12 has-text-centered" id="place-poke">
+        <img src="./assets/images/battlescreen_nottransparent.png" id="battlefield"/>
+      </div>
+      <div class="column is-12">
+        <span class="column is-12" id="user-health">Your Health</span>
+      </div>
+      <div class="column is-12">
+        <span class="column is-12" id="enemy-health">Enemy Health</span>
+      </div>
+      <div class="column is-12 has-text-centered" id="fight-btn"></div>
+    </section>
+
+    <section class="game-over">
+      <div class="column is-12 has-text-centered">
+        <h4 class="column is-12" id="win-lose"></h4>
+        <form class="column is-12" id="game-over-form">
+          <input id="name-input" type="text" autofocus="true" placeholder="Enter Your Name"/>
+          <button type="submit" id="name-click">Save Battle!</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="battle-records">
+      <div class="column is-12 has-text-centered">
+        <h5 id="list-header">Your Battle Records!</h5>
+      </div>
+      <div class="column is-12 has-text-centered">
+        <ol id="record-ol">
+          
+        </ol>
+        <button id="clear-battles">Clear Battles!</button>
+        <button id="play-again">Play Again!</button>
+      </div>
+    </section>
+
+  </main>
+  
+  <footer class="footer">
+    <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+          <ul>
+            <li><a href="https://github.com/asadg7" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Alex</a></li>
+            <li><a href="https://github.com/ChidoGang" class="nav-item nav-right button is-dark is-inverted is-outlined" target="_blank">Edgar</a></li>
+            <li><a href="https://github.com/NeXFP" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Gio</a></li>
+          </ul>
+>>>>>>> alex-functional
         </div>
-    </div>
-     
-    <!--Credits Section-->
-    <div class="hero-foot is-dark">
-      <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
-              <ul>
-                  <li><a href="https://github.com/asadg7" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Alex</a></li>
-                  <li><a href="https://github.com/ChidoGang" class="nav-item nav-right button is-dark is-inverted is-outlined" target="_blank">Edgar</a></li>
-                  <li><a href="https://github.com/NeXFP" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Gio</a></li>
-              </ul>
-          </div>
-      </nav>
-   </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
+    </nav>
+  </footer>
+    
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
