@@ -268,12 +268,12 @@ var stringCheck = function(substring, pokename) {
 
 var userAttack = function(sides) {
     
-    var apiUrl = "https://roll.diceapi.com/json/" + sides;
+    var apiUrl = "https://rolz.org/api/?d" + sides + ".json";
     fetch(apiUrl)
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    var dice = data.dice[0].value;
+                    var dice = data.result;
                     if (dice === 1) {
                         // miss attack
                         $("#battle-header").text("You missed your attack!");
@@ -311,16 +311,24 @@ var userAttack = function(sides) {
                 })
             }
         })
+        .catch(function(error) {
+            // insert modal for bad fetch
+            $("#bad-fetch").addClass("is-active");
+
+            $("#close-fetch").on("click", function() {
+                $("#bad-fetch").removeClass("is-active");
+            })
+        })
+
 }
 
 var enemyAttack = function(sides) {
-
-    var apiUrl = "https://roll.diceapi.com/json/" + sides;
+    var apiUrl = "https://rolz.org/api/?d" + sides + ".json";
     fetch(apiUrl)
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    var dice = data.dice[0].value;
+                    var dice = data.result;
                     if (dice === 1) {
                         // miss attack
                         setTimeout (function() {
@@ -366,6 +374,14 @@ var enemyAttack = function(sides) {
                 })
             }
         })
+        .catch(function(error) {
+            // insert modal for bad fetch
+            $("#bad-fetch").addClass("is-active");
+
+            $("#close-fetch").on("click", function() {
+                $("#bad-fetch").removeClass("is-active");
+            })
+        })
 }
 
 var checkHealth = function() {
@@ -390,8 +406,8 @@ var checkHealth = function() {
 
 var fightSequence = function() {
 
-    userAttack("d4");
-    enemyAttack("d4");
+    userAttack("4");
+    enemyAttack("4");
 
     $("#fight-btn").off("click");
     $("#fight-btn button").addClass("yellow-bg");
