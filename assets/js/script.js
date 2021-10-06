@@ -70,7 +70,7 @@ var fetchAll = function() {
 // function that displays the pokemon to the page from the fetch
 var displayPokemon = function(data) {
 
-    var pokeName = data.name;
+    var pokeName = firstLetterUpper(data.name);
     var front = data.sprites.front_shiny;
     updateObjects(data);
 
@@ -380,7 +380,6 @@ var fightSequence = function() {
     enemyAttack("9");
 
     $("#attack-btn").off("click");
-    $("#attack-btn").css("background-color", "yellow");
     setTimeout(function() {
         $("#attack-btn").on("click", fightSequence);
         $("#attack-btn").css("background-color", "transparent");
@@ -493,6 +492,9 @@ var deleteWelcome = function() {
     $(".hero-background").css("height", "90vh");
 }
 
+var firstLetterUpper = function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
 fetchAll();
 
 $("#show-poke").on("click", selectPokemon);

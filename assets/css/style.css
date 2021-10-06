@@ -1,4 +1,8 @@
 /* Styles Applying to the entire site */
+@font-face {
+    font-family: 'type_writer';
+    src: url('type_writer.ttf') format('ttf');
+}
 
 body {
     font-style: oblique;
@@ -100,6 +104,10 @@ footer a {
     height: auto;
 }
 
+h4 {
+    font-family: 'type_writer';
+}
+
 #attack-btn {
     position: absolute;
     top: 86.5%;
@@ -119,10 +127,10 @@ footer a {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: absolute;
-    top: 21.8%;
-    left: 29.5%;
-    width: 125px;
-    height: 13px;
+    top: 21.9%;
+    left: 29%;
+    width: 120px;
+    height: 12.2px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
@@ -131,19 +139,38 @@ footer a {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: absolute;
-    top: 59.5%;
-    left: 77%;
-    width: 125px;
-    height: 13px;
+    top: 59.85%;
+    left: 76.9%;
+    width: 120px;
+    height: 10.5px;
 }
 
 #enemy-health {
     width: 100%;
-    background-color: red;
+    height: 15px;
+    background-color: #fa8072;
+    background-color: green;
     color: white;
     display: none;
-    width: 125px;
-    height: 14px;
+    font-size: 12px;
+}
+
+#user-health {
+  width: 100%;
+  height: 15px;
+  background-color: #90ee90;
+  color: white;
+  text-align: center;
+  display: none;
+  font-size: 12px;
+}
+
+.hpText {
+  margin-bottom: 19%;
+  position: relative;
+  bottom: 8px;
+    width: 120px;
+    height: 12.2px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -153,8 +180,8 @@ footer a {
     background-color: green;
     color: white;
     display: none;
-    width: 125px;
-    height: 14px;
+    width: 120px;
+    height: 10.5px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -184,9 +211,22 @@ footer a {
     text-align: left;
 }
 
+.hp {
+  width: 115px;
+  height: 16px;
+  margin-left: 68%;
+}
+
+.hp1 {
+  width: 115px;
+  height: 16px;
+  margin-left: 29%;
+}
+
+
 .game-over {
-    display: none;
-    margin-top: 400px;
+  display: none;
+  margin-top: 400px;
 }
 
 .game-over input,
@@ -226,6 +266,29 @@ footer a {
     background: #363636;
 }
 
+  .full-wh {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+  }
+  
+  .bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 /* Track */
 ::-webkit-scrollbar-track {
     background: #363636;
