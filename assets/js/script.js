@@ -125,6 +125,7 @@ var selectPokemon = function(event) {
     var target = event.target;
     var parent = target.parentElement;
     var imgSrc = $(target).attr("src");
+    var pokeHeader = $(parent).text();
 
     if (imgSrc === charizardObj.front ||
         imgSrc === venusaurObj.front ||
@@ -134,7 +135,6 @@ var selectPokemon = function(event) {
         imgSrc === gyaradosObj.front) {
             $(target).remove();
             $(parent).remove();
-
             $("#show-poke").off("click");
         }
     else {
@@ -164,6 +164,7 @@ var selectPokemon = function(event) {
         }
     }
 
+    $("#user-poke-header").text(pokeHeader);
     $("#show-poke").on("click", selectEnemy);
     $("#battle-header").text("Choose Your Opponent!");
 }
@@ -173,6 +174,7 @@ var selectEnemy = function(event) {
     var target = event.target;
     var parent = target.parentElement;
     var imgSrc = $(target).attr("src");
+    var pokeHeader = $(parent).text();
 
     if (imgSrc === charizardObj.front ||
         imgSrc === venusaurObj.front ||
@@ -211,7 +213,7 @@ var selectEnemy = function(event) {
             break;
         }
     }
-
+    $("#enemy-poke-header").text(pokeHeader);
     $("#battle-header").text("Click the Attack Button to Begin!");
     $("#attack-btn").css("display", "inline-block");
 

@@ -77,29 +77,111 @@ footer a {
     color: white;
 }
 
-#fight-btn button {
-    width: 33%;
-    height: 45px;
-}
-
 #smaller-height {
     height: 10px;
+}
+
+#attack-btn,
+#clear-battles,
+#play-again {
+    font-style: oblique;
+    font-family: sans-serif;
+}
+
+#place-poke {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#place-poke img {
+    height: auto;
+}
+
+#attack-btn {
+    position: absolute;
+    top: 86.5%;
+    left: 50%;
+    width: 585px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 15px;
+    font-size: 40px;
+    display: none;
+}
+
+#hp-bar-enemy {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 21.8%;
+    left: 29.5%;
+    width: 125px;
+    height: 13px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#hp-bar-user {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 59.5%;
+    left: 77%;
+    width: 125px;
+    height: 13px;
 }
 
 #enemy-health {
     width: 100%;
     background-color: red;
     color: white;
-    text-align: center;
     display: none;
+    width: 125px;
+    height: 14px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #user-health {
     width: 100%;
     background-color: green;
     color: white;
-    text-align: center;
     display: none;
+    width: 125px;
+    height: 14px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#user-poke-header {
+    position: absolute;
+    top: 53.6%;
+    left: 80%;
+    width: 250px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-family: arial;
+    text-align: left;
+}
+
+#enemy-poke-header {
+    position: absolute;
+    top: 14.6%;
+    left: 22.5%;
+    width: 250px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-align: left;
 }
 
 .game-over {
@@ -113,38 +195,12 @@ footer a {
     height: 35px;
 }
 
-#attack-btn,
-#clear-battles,
-#play-again {
-    font-style: oblique;
-    font-family: sans-serif;
-}
-
-#place-poke {
-    position: relative;
-}
-
-#attack-btn {
-    position: absolute;
-    top: 84.5%;
-    left: 50%;
-    width: 585px;
-    height: 100px;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: transparent;
-    border-color: transparent;
-    border-radius: 15px;
-    font-size: 40px;
-    font-style: oblique;
-    font-family: sans-serif;
-    display: none;
-}
-
 #win-lose {
     font-size: 24px;
     color: white;
+    width: 100%;
 }
+
 .battle-records {
     display: none;
     margin-top: 100px;

@@ -67,15 +67,17 @@
       <div class="column is-12 has-text-centered">
         <h3 id="battle-header">Choose Your Pokémon!</h3>
       </div>
-      <div class="column is-12 has-text-centered" id="place-poke">
+      <div class="has-text-centered" id="place-poke">
         <img src="./assets/images/battlescreen_nottransparent.png" id="battlefield"/>
+        <h4 id="enemy-poke-header"></h4>
+        <div id="hp-bar-enemy">
+          <span id="enemy-health"></span>
+        </div>
+        <h4 id="user-poke-header"></h4>
+        <div id="hp-bar-user">
+          <span id="user-health"></span>
+        </div>
         <button id="attack-btn">Attack</button>
-      </div>
-      <div class="column is-12">
-        <span class="column is-12" id="user-health">Your Health</span>
-      </div>
-      <div class="column is-12">
-        <span class="column is-12" id="enemy-health">Enemy Health</span>
       </div>
     </section>
 
@@ -84,7 +86,7 @@
         <h4 class="column is-12" id="win-lose"></h4>
         <form class="column is-12" id="game-over-form">
           <input id="name-input" type="text" autofocus="true" placeholder="Enter Your Name"/>
-          <button type="submit" id="name-click">Save Battle!</button>
+          <button class="button is-danger" type="submit" id="name-click">Save Battle!</button>
         </form>
       </div>
     </section>
