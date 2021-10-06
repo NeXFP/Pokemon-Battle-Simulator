@@ -1,68 +1,33 @@
-// Venusaur, Charizard, Blastoise, Mew, Dragonite, Gyarados 
-var venusaurObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
-var charizardObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
-var blastoiseObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
-var mewObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
-var dragoniteObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
-var gyaradosObj = {
-    health: 100,
-    attack: 20,
-    effective: 40,
-    noteffective: 5
-}
-
+// Venusaur, Charizard, Blastoise, Mew, Dragonite, Gyarados
+// Setting empty objects to fill with the sprites from Poke Fetch
+var venusaurObj = {}
+var charizardObj = {}
+var blastoiseObj = {}
+var mewObj = {}
+var dragoniteObj = {}
+var gyaradosObj = {}
 var userPokeObj = {};
-
 var enemyPokeObj = {};
-
+// Setting objects for fight functions
 var userStats = {
     health: 100,
     attack: 20,
     effective: 40,
     noteffective: 5
 }
-
 var enemyStats = {
     health: 100,
     attack: 20,
     effective: 40,
     noteffective: 5
 }
-
+// Setting empty array for local storage
+var battleRecords = [];
+// Setting variables to check if the user won or lost for local storage purposes
+var userWon;
+var userLost;
 var wins = 0;
 var losses = 0;
-
-var battleRecords = [];
 
 //create fetch request to display the 6 pokemon
 var fetchPokemon = function(poke) {
@@ -84,13 +49,29 @@ var fetchPokemon = function(poke) {
                 })
             }
         })
-}
+        .catch(function(error) {
+            // insert modal for bad fetch
+            $("#bad-fetch").addClass("is-active");
 
+            $("#close-fetch").on("click", function() {
+                $("#bad-fetch").removeClass("is-active");
+            })
+        })
+}
+// function that fetches all 6 pokemon at once
+var fetchAll = function() {
+    fetchPokemon("charizard");
+    fetchPokemon("venusaur");
+    fetchPokemon("blastoise");
+    fetchPokemon("mew");
+    fetchPokemon("dragonite");
+    fetchPokemon("gyarados");
+}
+// function that displays the pokemon to the page from the fetch
 var displayPokemon = function(data) {
 
     var pokeName = data.name;
     var front = data.sprites.front_shiny;
-    var back = data.sprites.back_shiny;
     updateObjects(data);
 
     var newDiv = $("<div></div>");
@@ -105,9 +86,8 @@ var displayPokemon = function(data) {
     pokeImg.attr("src", front);
     pokeImg.attr("id", "pokeId");
     $(newDiv).append(pokeImg);
-
 }
-
+// function that fills the empty arrays with the necessary sprite info
 var updateObjects = function (data) {
     if (data.name === "charizard") {
         charizardObj.name = data.name;
@@ -140,18 +120,8 @@ var updateObjects = function (data) {
         gyaradosObj.back = data.sprites.back_shiny;
     }
 }
-
-var fetchAll = function() {
-    fetchPokemon("charizard");
-    fetchPokemon("venusaur");
-    fetchPokemon("blastoise");
-    fetchPokemon("mew");
-    fetchPokemon("dragonite");
-    fetchPokemon("gyarados");
-}
-
+// function that allows for the user to select the pokemon they want and remove it from the set of choices
 var selectPokemon = function(event) {
-
     var target = event.target;
     var parent = target.parentElement;
     var imgSrc = $(target).attr("src");
@@ -197,7 +167,7 @@ var selectPokemon = function(event) {
     $("#show-poke").on("click", selectEnemy);
     $("#battle-header").text("Choose Your Opponent!");
 }
-
+// function that allows the user to select the pokemon they want to battle and display it to the image
 var selectEnemy = function(event) {
 
     var target = event.target;
@@ -252,9 +222,8 @@ var selectEnemy = function(event) {
     $("#user-health").css("display", "block");
     $("#enemy-health").css("display", "block");
 }
-
+// function that checks which pokemon the user selected as their opponent in order to update the image accordingly
 var stringCheck = function(substring, pokename) {
-
     stringArray = ["char", "mew", "ven", "blas", "gyar", "drag"];
 
     for (i = 0; i < stringArray.length; i++) {
@@ -265,7 +234,7 @@ var stringCheck = function(substring, pokename) {
         }
     }
 }
-
+// function for the user to attack with a fetch request of a random number from a dice roll
 var userAttack = function(sides) {
     
     var apiUrl = "https://rolz.org/api/?d" + sides + ".json";
@@ -279,21 +248,21 @@ var userAttack = function(sides) {
                         $("#battle-header").text("You missed your attack!");
                         return;
                     }
-                    else if (dice === 2) {
+                    else if (dice > 1 && dice < 6) {
                         // regular attack
                         enemyStats.health -= userStats.attack;
                         $("#battle-header").text("You hit a normal attack for 20 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
                         checkHealth();
                     }
-                    else if (dice === 3) {
+                    else if (dice > 5 && dice < 8) {
                         // super effective attack
                         enemyStats.health -= userStats.effective;
                         $("#battle-header").text("You hit a super effective attack for 40 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
                         checkHealth();
                     }
-                    else if (dice === 4) {
+                    else if (dice > 7 && dice < 10) {
                         // not very effective attack
                         enemyStats.health -= userStats.noteffective;
                         $("#battle-header").text("You hit a not very effective attack for 5 HP!");
@@ -321,7 +290,7 @@ var userAttack = function(sides) {
         })
 
 }
-
+// function for the opponent to attack in return after the user attacks
 var enemyAttack = function(sides) {
     var apiUrl = "https://rolz.org/api/?d" + sides + ".json";
     fetch(apiUrl)
@@ -336,7 +305,7 @@ var enemyAttack = function(sides) {
                         }, 1000*2);
                         return;
                     }
-                    else if (dice === 2) {
+                    else if (dice > 1 && dice < 6) {
                         // regular attack
                         userStats.health -= enemyStats.attack;
                         setTimeout (function() {
@@ -345,7 +314,7 @@ var enemyAttack = function(sides) {
                         }, 1000*2);
                         checkHealth();
                     }
-                    else if (dice === 3) {
+                    else if (dice > 5 && dice < 8) {
                         // super effective attack
                         userStats.health -= enemyStats.effective;
                         setTimeout (function() {
@@ -354,7 +323,7 @@ var enemyAttack = function(sides) {
                         }, 1000*2);
                         checkHealth();
                     }
-                    else if (dice === 4) {
+                    else if (dice > 7 && dice < 10) {
                         // not very effective attack
                         userStats.health -= enemyStats.noteffective;
                         setTimeout (function() {
@@ -383,11 +352,12 @@ var enemyAttack = function(sides) {
             })
         })
 }
-
+// check the health and see if either pokemon has reached 0 or below
 var checkHealth = function() {
-
     if (userStats.health <= 0) {
         //game over you lose
+        userWon = false;
+        userLost = true;
         losses++;
         $(".main-section").hide();
         $("#win-lose").text("You Lose!");
@@ -396,6 +366,8 @@ var checkHealth = function() {
     }
     else if (enemyStats.health <= 0) {
         // game over you win!
+        userWon = true;
+        userLost = false;
         wins++;
         $(".main-section").hide();
         $("#win-lose").text("You Win!");
@@ -403,23 +375,21 @@ var checkHealth = function() {
         $(".game-over").show();
     }
 }
-
+// combines the user and enemy attacks and adds a delay
 var fightSequence = function() {
 
-    userAttack("4");
-    enemyAttack("4");
+    userAttack("9");
+    enemyAttack("9");
 
     $("#fight-btn").off("click");
     $("#fight-btn button").addClass("yellow-bg");
-
     setTimeout(function() {
         $("#fight-btn").on("click", fightSequence);
         $("#fight-btn button").removeClass("yellow-bg");
     }, 1000*2.5);
 }
-
+// function that will take the user's name and save it to local storage along with their wins and losses
 var addBattle = function(event) {
-
     event.preventDefault();
     var input = $("#name-input").val().trim();
 
@@ -433,16 +403,42 @@ var addBattle = function(event) {
     }
     else {
         battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
-
-        battleRecords.push({
-            name: input,
-            wins: wins,
-            losses: losses
-        })
-    
-        saveBattle();
-        viewBattles();
     }
+
+    var boolean = battleRecords.some(obj => obj.name.includes(input));
+
+    if (boolean) {
+        for (i = 0; i < battleRecords.length; i++) {
+            if (battleRecords[i].name === input) {
+                if (userWon) {
+                    battleRecords[i].wins++;
+                }
+                else if (userLost) {
+                    battleRecords[i].losses++;
+                }
+            }
+        }
+    }
+    else {
+        if (userWon) {
+            battleRecords.push({
+                name: input,
+                wins: 1,
+                losses: 0
+            })
+        }
+        else if (userLost) {
+            battleRecords.push({
+                name: input,
+                wins: 0,
+                losses: 1
+            })
+        }
+    }
+
+    $("#name-input").val("");
+    saveBattle();
+    viewBattles();
 }
 
 var saveBattle = function() {
@@ -450,12 +446,12 @@ var saveBattle = function() {
 }
 
 var viewBattles = function() {
-
     $(".main-section").hide();
     $(".game-over").hide();
     $(".battle-records").show();
 
     var newList = $("#record-ol");
+    newList.empty();
 
     for (i = 0; i < battleRecords.length; i++) {
         var newLi = $("<li></li>");
