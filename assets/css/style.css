@@ -1,8 +1,4 @@
 /* Styles Applying to the entire site */
-@font-face {
-    font-family: 'type_writer';
-    src: url('type_writer.ttf') format('ttf');
-}
 
 body {
     font-style: oblique;
@@ -104,10 +100,6 @@ footer a {
     height: auto;
 }
 
-h4 {
-    font-family: 'type_writer';
-}
-
 #attack-btn {
     position: absolute;
     top: 86.5%;
@@ -147,28 +139,9 @@ h4 {
 
 #enemy-health {
     width: 100%;
-    height: 15px;
-    background-color: #fa8072;
     background-color: green;
     color: white;
     display: none;
-    font-size: 12px;
-}
-
-#user-health {
-  width: 100%;
-  height: 15px;
-  background-color: #90ee90;
-  color: white;
-  text-align: center;
-  display: none;
-  font-size: 12px;
-}
-
-.hpText {
-  margin-bottom: 19%;
-  position: relative;
-  bottom: 8px;
     width: 120px;
     height: 12.2px;
     border-top-right-radius: 15px;
@@ -211,22 +184,9 @@ h4 {
     text-align: left;
 }
 
-.hp {
-  width: 115px;
-  height: 16px;
-  margin-left: 68%;
-}
-
-.hp1 {
-  width: 115px;
-  height: 16px;
-  margin-left: 29%;
-}
-
-
 .game-over {
-  display: none;
-  margin-top: 400px;
+    display: none;
+    margin-top: 400px;
 }
 
 .game-over input,
@@ -266,29 +226,6 @@ h4 {
     background: #363636;
 }
 
-  .full-wh {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-  }
-  
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 /* Track */
 ::-webkit-scrollbar-track {
     background: #363636;
