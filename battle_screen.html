@@ -32,6 +32,7 @@
   </nav>
 
   <main>
+
     <section class="fetch-modal">
       <div class="modal" id="bad-fetch">
         <div class="modal-background"></div>
@@ -67,16 +68,18 @@
       <div class="column is-12 has-text-centered">
         <h3 id="battle-header">Choose Your Pokémon!</h3>
       </div>
-      <div class="column is-12 has-text-centered" id="place-poke">
-        <div class="hp">
-          <span id="user-health"><p class="hpText">Your Health</p></span>
-        </div>
-        <div class="hp1">
-          <span id="enemy-health"><p class="hpText">Enemy Health</p></span>
-        </div>
+      <div class="has-text-centered" id="place-poke">
         <img src="./assets/images/battlescreen_nottransparent.png" id="battlefield"/>
+        <h4 id="enemy-poke-header"></h4>
+        <div id="hp-bar-enemy">
+          <span id="enemy-health"></span>
+        </div>
+        <h4 id="user-poke-header"></h4>
+        <div id="hp-bar-user">
+          <span id="user-health"></span>
+        </div>
+        <button id="attack-btn">Attack</button>
       </div>
-      <div class="column is-12 has-text-centered" id="fight-btn"></div>
     </section>
 
     <section class="game-over">
@@ -84,7 +87,7 @@
         <h4 class="column is-12" id="win-lose"></h4>
         <form class="column is-12" id="game-over-form">
           <input id="name-input" type="text" autofocus="true" placeholder="Enter Your Name"/>
-          <button type="submit" id="name-click">Save Battle!</button>
+          <button class="button is-danger" type="submit" id="name-click">Save Battle!</button>
         </form>
       </div>
     </section>
@@ -97,28 +100,28 @@
         <ol id="record-ol">
           
         </ol>
-        <button id="clear-battles">Clear Battles!</button>
-        <button id="play-again">Play Again!</button>
+        <button class="button is-danger" id="clear-battles">Clear Battles!</button>
+        <button class="button is-danger" id="play-again">Play Again!</button>
       </div>
     </section>
 
   </main>
   
   <footer class="footer">
-    <nav class="tabs is-boxed is-fullwidth">
-        <div class="container">
-          <ul>
-            <li><a href="https://github.com/asadg7" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Alex</a></li>
-            <li><a href="https://github.com/ChidoGang" class="nav-item nav-right button is-dark is-inverted is-outlined" target="_blank">Edgar</a></li>
-            <li><a href="https://github.com/NeXFP" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Gio</a></li>
-          </ul>
-        </div>
+    <div class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li><a href="https://github.com/asadg7" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Alex</a></li>
+          <li><a href="https://github.com/ChidoGang" class="nav-item nav-right button is-dark is-inverted is-outlined" target="_blank">Edgar</a></li>
+          <li><a href="https://github.com/NeXFP" class="nav-item nav-right button is-danger is-inverted is-outlined" target="_blank">Gio</a></li>
+        </ul>
+      </div>
     </div>
+  </footer>
     
-    <!--Credits Section-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>

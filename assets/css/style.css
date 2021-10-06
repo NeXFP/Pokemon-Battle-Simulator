@@ -1,12 +1,19 @@
 /* Styles Applying to the entire site */
+@font-face {
+    font-family: 'type_writer';
+    src: url('type_writer.ttf') format('ttf');
+}
 
 body {
     font-style: oblique;
     font-family: sans-serif;
 }
 
-
 /* Homepage CSS */
+
+#home-sliver {
+    background-color: #79caf9;
+}
 
 .is-fullheight-100vh {
     height: 100vh;
@@ -32,6 +39,15 @@ body {
 #welcome-button {
     z-index: 1000;
 }
+
+#poke-a {
+  z-index: 1001;
+}
+
+footer a {
+    z-index: 2000;
+}
+
 
 /* Battle Screen CSS */
 
@@ -65,21 +81,76 @@ body {
     color: white;
 }
 
-#fight-btn button {
-    width: 33%;
-    height: 45px;
+#smaller-height {
+    height: 10px;
 }
 
-.yellow-bg {
-    background-color: yellow;
+#attack-btn,
+#clear-battles,
+#play-again {
+    font-style: oblique;
+    font-family: sans-serif;
+}
+
+#place-poke {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#place-poke img {
+    height: auto;
+}
+
+h4 {
+    font-family: 'type_writer';
+}
+
+#attack-btn {
+    position: absolute;
+    top: 86.5%;
+    left: 50%;
+    width: 585px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 15px;
+    font-size: 40px;
+    display: none;
+}
+
+#hp-bar-enemy {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 21.9%;
+    left: 29%;
+    width: 120px;
+    height: 12.2px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#hp-bar-user {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 59.85%;
+    left: 76.9%;
+    width: 120px;
+    height: 10.5px;
 }
 
 #enemy-health {
     width: 100%;
     height: 15px;
     background-color: #fa8072;
+    background-color: green;
     color: white;
-    text-align: center;
     display: none;
     font-size: 12px;
 }
@@ -98,6 +169,46 @@ body {
   margin-bottom: 19%;
   position: relative;
   bottom: 8px;
+    width: 120px;
+    height: 12.2px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#user-health {
+    width: 100%;
+    background-color: green;
+    color: white;
+    display: none;
+    width: 120px;
+    height: 10.5px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#user-poke-header {
+    position: absolute;
+    top: 53.6%;
+    left: 80%;
+    width: 250px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-family: arial;
+    text-align: left;
+}
+
+#enemy-poke-header {
+    position: absolute;
+    top: 14.6%;
+    left: 22.5%;
+    width: 250px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-align: left;
 }
 
 .hp {
@@ -127,7 +238,9 @@ body {
 #win-lose {
     font-size: 24px;
     color: white;
+    width: 100%;
 }
+
 .battle-records {
     display: none;
     margin-top: 100px;
@@ -176,6 +289,10 @@ body {
     width: 100%;
     height: 100%;
   }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #363636;
+}
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
