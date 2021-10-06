@@ -7,7 +7,8 @@
     <title>Pokémon battle_screen</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/stars.css"> 
 </head>
 
 <body class="is-fullheight-100vh" id="bScreen">
@@ -67,13 +68,13 @@
         <h3 id="battle-header">Choose Your Pokémon!</h3>
       </div>
       <div class="column is-12 has-text-centered" id="place-poke">
+        <div class="hp">
+          <span id="user-health"><p class="hpText">Your Health</p></span>
+        </div>
+        <div class="hp1">
+          <span id="enemy-health"><p class="hpText">Enemy Health</p></span>
+        </div>
         <img src="./assets/images/battlescreen_nottransparent.png" id="battlefield"/>
-      </div>
-      <div class="column is-12">
-        <span class="column is-12" id="user-health">Your Health</span>
-      </div>
-      <div class="column is-12">
-        <span class="column is-12" id="enemy-health">Enemy Health</span>
       </div>
       <div class="column is-12 has-text-centered" id="fight-btn"></div>
     </section>
