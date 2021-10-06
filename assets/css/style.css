@@ -33,6 +33,11 @@ body {
     z-index: 1000;
 }
 
+#poke-a {
+  z-index: 1001;
+}
+
+
 /* Battle Screen CSS */
 
 #bScreen {
