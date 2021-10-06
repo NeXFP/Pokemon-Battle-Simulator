@@ -7,6 +7,10 @@ body {
 
 /* Homepage CSS */
 
+#home-sliver {
+    background-color: #79caf9;
+}
+
 .is-fullheight-100vh {
     height: 100vh;
 }
@@ -82,10 +86,6 @@ footer a {
     height: 10px;
 }
 
-.yellow-bg {
-    background-color: yellow;
-}
-
 #enemy-health {
     width: 100%;
     background-color: red;
@@ -111,6 +111,34 @@ footer a {
 .game-over button {
     width: 20%;
     height: 35px;
+}
+
+#attack-btn,
+#clear-battles,
+#play-again {
+    font-style: oblique;
+    font-family: sans-serif;
+}
+
+#place-poke {
+    position: relative;
+}
+
+#attack-btn {
+    position: absolute;
+    top: 84.5%;
+    left: 50%;
+    width: 585px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 15px;
+    font-size: 40px;
+    font-style: oblique;
+    font-family: sans-serif;
+    display: none;
 }
 
 #win-lose {

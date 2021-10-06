@@ -213,11 +213,7 @@ var selectEnemy = function(event) {
     }
 
     $("#battle-header").text("Click the Attack Button to Begin!");
-
-    var newBtn = $("<button></button>");
-    newBtn.attr("id", "attack-btn");
-    newBtn.html("Attack!");
-    $("#fight-btn").append(newBtn);
+    $("#attack-btn").css("display", "inline-block");
 
     $("#user-health").css("display", "block");
     $("#enemy-health").css("display", "block");
@@ -381,11 +377,11 @@ var fightSequence = function() {
     userAttack("9");
     enemyAttack("9");
 
-    $("#fight-btn").off("click");
-    $("#fight-btn button").addClass("yellow-bg");
+    $("#attack-btn").off("click");
+    $("#attack-btn").css("background-color", "yellow");
     setTimeout(function() {
-        $("#fight-btn").on("click", fightSequence);
-        $("#fight-btn button").removeClass("yellow-bg");
+        $("#attack-btn").on("click", fightSequence);
+        $("#attack-btn").css("background-color", "transparent");
     }, 1000*2.5);
 }
 // function that will take the user's name and save it to local storage along with their wins and losses
@@ -481,12 +477,10 @@ var playAgain = function() {
     enemyStats.health = 100;
     $("#user-health").css("width", "100%");
     $("#enemy-health").css("width", "100%");
-    $("#place-poke").html("<img src='./assets/images/battlescreen.png' id='battlefield'/>")
     var buttonOff = $("#show-poke").off("click");
     if (buttonOff) {
         $("#show-poke").on("click", selectPokemon);
     }
-    $("#attack-btn").remove();
     $("#battle-header").text("Choose Your Pokémon!");
     $(".main-section").show();
     $(".battle-records").hide();
@@ -501,7 +495,7 @@ fetchAll();
 
 $("#show-poke").on("click", selectPokemon);
 
-$("#fight-btn").on("click", fightSequence);
+$("#attack-btn").on("click", fightSequence);
 
 $("#name-click").on("click", addBattle);
 
@@ -512,3 +506,9 @@ $("#view-battles").on("click", generateList);
 $("#play-again").on("click", playAgain);
 
 $("#welcome-button").on("click", deleteWelcome);
+
+$("#user-poke-header").css("display", "inline-block");
+$("#enemy-poke-header").css("display", "inline-block");
+
+
+
