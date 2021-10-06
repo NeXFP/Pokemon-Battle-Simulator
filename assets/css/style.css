@@ -1,4 +1,5 @@
 /* Styles Applying to the entire site */
+
 body {
     font-style: oblique;
     font-family: sans-serif;
@@ -138,22 +139,13 @@ footer a {
 
 #enemy-health {
     width: 100%;
-    height: 15px;
-    background-color: #fa8072;
     background-color: green;
     color: white;
     display: none;
-    font-size: 12px;
-}
-
-#user-health {
-  width: 100%;
-  height: 15px;
-  background-color: #90ee90;
-  color: white;
-  text-align: center;
-  display: none;
-  font-size: 12px;
+    width: 120px;
+    height: 12.2px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #user-health {
@@ -192,22 +184,9 @@ footer a {
     text-align: left;
 }
 
-.hp {
-  width: 115px;
-  height: 16px;
-  margin-left: 68%;
-}
-
-.hp1 {
-  width: 115px;
-  height: 16px;
-  margin-left: 29%;
-}
-
-
 .game-over {
-  display: none;
-  margin-top: 400px;
+    display: none;
+    margin-top: 400px;
 }
 
 .game-over input,
@@ -247,29 +226,6 @@ footer a {
     background: #363636;
 }
 
-  .full-wh {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-  }
-  
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 /* Track */
 ::-webkit-scrollbar-track {
     background: #363636;
