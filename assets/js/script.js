@@ -476,8 +476,14 @@ var playAgain = function() {
     fetchAll();
     userStats.health = 100;
     enemyStats.health = 100;
+    $("#attack-btn").css("display", "none");
+    $("#user-poke-header").text("");
+    $("#enemy-poke-header").text("");
+    $("#user-health").css("display", "none");
+    $("#enemy-health").css("display", "none");
     $("#user-health").css("width", "100%");
     $("#enemy-health").css("width", "100%");
+    $("#battlefield").attr("src", "./assets/images/battlescreen_nottransparent.png");
     var buttonOff = $("#show-poke").off("click");
     if (buttonOff) {
         $("#show-poke").on("click", selectPokemon);
