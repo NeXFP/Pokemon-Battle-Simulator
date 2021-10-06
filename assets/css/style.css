@@ -1,9 +1,4 @@
 /* Styles Applying to the entire site */
-@font-face {
-    font-family: 'type_writer';
-    src: url('type_writer.ttf') format('ttf');
-}
-
 body {
     font-style: oblique;
     font-family: sans-serif;
@@ -104,10 +99,6 @@ footer a {
     height: auto;
 }
 
-h4 {
-    font-family: 'type_writer';
-}
-
 #attack-btn {
     position: absolute;
     top: 86.5%;
@@ -163,16 +154,6 @@ h4 {
   text-align: center;
   display: none;
   font-size: 12px;
-}
-
-.hpText {
-  margin-bottom: 19%;
-  position: relative;
-  bottom: 8px;
-    width: 120px;
-    height: 12.2px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
 }
 
 #user-health {
