@@ -26,8 +26,6 @@ var battleRecords = [];
 // Setting variables to check if the user won or lost for local storage purposes
 var userWon;
 var userLost;
-var wins = 0;
-var losses = 0;
 
 //create fetch request to display the 6 pokemon
 var fetchPokemon = function(poke) {
@@ -170,7 +168,6 @@ var selectPokemon = function(event) {
 }
 // function that allows the user to select the pokemon they want to battle and display it to the image
 var selectEnemy = function(event) {
-
     var target = event.target;
     var parent = target.parentElement;
     var imgSrc = $(target).attr("src");
@@ -356,7 +353,6 @@ var checkHealth = function() {
         //game over you lose
         userWon = false;
         userLost = true;
-        losses++;
         $(".main-section").hide();
         $("#win-lose").text("You Lose!");
         $(".game-over").css("display", "flex")
@@ -366,7 +362,6 @@ var checkHealth = function() {
         // game over you win!
         userWon = true;
         userLost = false;
-        wins++;
         $(".main-section").hide();
         $("#win-lose").text("You Win!");
         $(".game-over").css("display", "flex")
@@ -382,7 +377,6 @@ var fightSequence = function() {
     $("#attack-btn").off("click");
     setTimeout(function() {
         $("#attack-btn").on("click", fightSequence);
-        $("#attack-btn").css("background-color", "transparent");
     }, 1000*2.5);
 }
 // function that will take the user's name and save it to local storage along with their wins and losses
@@ -437,11 +431,11 @@ var addBattle = function(event) {
     saveBattle();
     viewBattles();
 }
-
+// function to save the battle to local storage
 var saveBattle = function() {
     localStorage.setItem("Battle Records", JSON.stringify(battleRecords));
 }
-
+// function to hide and show necessary content and then iterate through local storage to generate scores and list
 var viewBattles = function() {
     $(".main-section").hide();
     $(".game-over").hide();
@@ -456,21 +450,20 @@ var viewBattles = function() {
         newLi.addClass("column is-12");
         $(newList).append(newLi);
     }
-
 }
-
+// function that will delete all of local storage and clear the list
 var clearStorage = function() {
     localStorage.clear();
     $("#record-ol").empty();
 }
-
+// function that generates and shows the list if the user selects on battle records
 var generateList = function() {
     battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
     saveBattle();
     $("#record-ol").empty();
     viewBattles();
 }
-
+// reset function that restes all necessary variables to their starting positions to play the battle again
 var playAgain = function() {
     $("#show-poke").empty();
     fetchAll();
@@ -492,17 +485,19 @@ var playAgain = function() {
     $(".main-section").show();
     $(".battle-records").hide();
 }
-
+// function to delete welcome message at homepage
 var deleteWelcome = function() {
     $(".message").remove();
     $(".hero-background").css("height", "90vh");
 }
-
+// function to make the first letter of a string uppercase
 var firstLetterUpper = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
-fetchAll();
 
+// fetch all the pokemon to begin the page
+fetchAll();
+// add click listeners to everything
 $("#show-poke").on("click", selectPokemon);
 
 $("#attack-btn").on("click", fightSequence);
@@ -516,9 +511,5 @@ $("#view-battles").on("click", generateList);
 $("#play-again").on("click", playAgain);
 
 $("#welcome-button").on("click", deleteWelcome);
-
-$("#user-poke-header").css("display", "inline-block");
-$("#enemy-poke-header").css("display", "inline-block");
-
 
 
