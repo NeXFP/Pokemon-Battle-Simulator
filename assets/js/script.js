@@ -357,7 +357,6 @@ var checkHealth = function() {
         $("#win-lose").text("You Lose!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
-        console.log("test");
     }
     else if (enemyStats.health <= 0) {
         // game over you win!
@@ -367,7 +366,6 @@ var checkHealth = function() {
         $("#win-lose").text("You Win!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
-        console.log("test2");
     }
 }
 // combines the user and enemy attacks and adds a delay
@@ -431,76 +429,17 @@ var addBattle = function(event) {
 
     $("#name-input").val("");
     saveBattle();
-    viewBattles();
+    window.location.href = "./battle_records.html";
 }
 // function to save the battle to local storage
 var saveBattle = function() {
     localStorage.setItem("Battle Records", JSON.stringify(battleRecords));
 }
-// function to hide and show necessary content and then iterate through local storage to generate scores and list
-var viewBattles = function() {
-    $(".main-section").hide();
-    $(".game-over").hide();
-    $(".battle-records").show();
 
-    var newList = $("#record-ol");
-    newList.empty();
-
-    for (i = 0; i < battleRecords.length; i++) {
-        var newLi = $("<li></li>");
-        newLi.html(battleRecords[i].name + "</br> Wins: " + battleRecords[i].wins + " Losses: " + battleRecords[i].losses);
-        newLi.addClass("column is-12");
-        $(newList).append(newLi);
-    }
-}
-// function that will delete all of local storage and clear the list
-var clearStorage = function() {
-    localStorage.clear();
-    $("#record-ol").empty();
-}
-// function that generates and shows the list if the user selects on battle records
-var generateList = function() {
-    battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
-    saveBattle();
-    $("#record-ol").empty();
-    viewBattles();
-}
-// reset function that restes all necessary variables to their starting positions to play the battle again
-var playAgain = function() {
-    $("#show-poke").empty();
-    fetchAll();
-    userStats.health = 100;
-    enemyStats.health = 100;
-    $("#attack-btn").css("display", "none");
-    $("#user-poke-header").text("");
-    $("#enemy-poke-header").text("");
-    $("#user-health").css("display", "none");
-    $("#enemy-health").css("display", "none");
-    $("#user-health").css("width", "100%");
-    $("#enemy-health").css("width", "100%");
-    $("#battlefield").attr("src", "./assets/images/battlescreen_nottransparent.png");
-    var buttonOff = $("#show-poke").off("click");
-    if (buttonOff) {
-        $("#show-poke").on("click", selectPokemon);
-    }
-    $("#battle-header").text("Choose Your Pokémon!");
-    $(".main-section").show();
-    $(".battle-records").hide();
-}
-// function to delete welcome message at homepage
-var deleteWelcome = function() {
-    $(".message").remove();
-    $(".hero-background").css("height", "90vh");
-}
 // function to make the first letter of a string uppercase
 var firstLetterUpper = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
-
-// function for displaying battle records from the homescreen button
-var displayBattlesHome = function() {
-    
-}
 
 // fetch all the pokemon to begin the page
 fetchAll();
@@ -510,15 +449,5 @@ $("#show-poke").on("click", selectPokemon);
 $("#attack-btn").on("click", fightSequence);
 
 $("#name-click").on("click", addBattle);
-
-$("#clear-battles").on("click", clearStorage);
-
-$("#view-battles").on("click", generateList);
-
-$("#play-again").on("click", playAgain);
-
-$("#welcome-button").on("click", deleteWelcome);
-
-$("#home-battles").on("click", displayBattlesHome);
 
 
