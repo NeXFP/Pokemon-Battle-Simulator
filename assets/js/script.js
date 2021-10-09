@@ -495,6 +495,11 @@ var firstLetterUpper = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+// function for displaying battle records from the homescreen button
+var displayBattlesHome = function() {
+    
+}
+
 // fetch all the pokemon to begin the page
 fetchAll();
 // add click listeners to everything
@@ -511,5 +516,7 @@ $("#view-battles").on("click", generateList);
 $("#play-again").on("click", playAgain);
 
 $("#welcome-button").on("click", deleteWelcome);
+
+$("#home-battles").on("click", displayBattlesHome);
 
 
