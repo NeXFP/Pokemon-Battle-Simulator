@@ -57,8 +57,9 @@ footer a {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-position: 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-attachment: fixed;
     background-image: url(../images/bg2.png);
 }
 
@@ -201,7 +202,7 @@ footer a {
 
 .game-over {
     display: none;
-    margin-top: 50%;
+    margin-top: 350px;
 }
 
 .game-over input,

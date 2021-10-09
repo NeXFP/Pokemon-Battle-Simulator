@@ -357,6 +357,7 @@ var checkHealth = function() {
         $("#win-lose").text("You Lose!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
+        console.log("test");
     }
     else if (enemyStats.health <= 0) {
         // game over you win!
@@ -366,6 +367,7 @@ var checkHealth = function() {
         $("#win-lose").text("You Win!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
+        console.log("test2");
     }
 }
 // combines the user and enemy attacks and adds a delay
