@@ -38,8 +38,7 @@ body {
 }
 
 #color-white {
-  color: white;
-
+    color: white;
 }
 
 #welcome-button {
@@ -155,7 +154,7 @@ footer a {
 
 #enemy-health {
     width: 100%;
-    background-color: green;
+    background-color: #6ef3a4;
     color: white;
     display: none;
     width: 120px;
@@ -166,7 +165,7 @@ footer a {
 
 #user-health {
     width: 100%;
-    background-color: green;
+    background-color:#6ef3a4;
     color: white;
     display: none;
     width: 120px;
@@ -238,6 +237,7 @@ footer a {
     bottom: 0px;
     width: 100%;
     height: 40px;
+    z-index: 5000;
 }
 
 /* Custom Scroll */
