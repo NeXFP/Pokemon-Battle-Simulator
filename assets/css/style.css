@@ -150,7 +150,7 @@ footer a {
 
 #enemy-health {
     width: 100%;
-    background-color: #6ef3a4;
+    background-color: green;
     color: white;
     display: none;
     width: 120px;
@@ -161,7 +161,7 @@ footer a {
 
 #user-health {
     width: 100%;
-    background-color: #6ef3a4;
+    background-color: green;
     color: white;
     display: none;
     width: 120px;
@@ -172,31 +172,31 @@ footer a {
 
 #user-poke-header {
     position: absolute;
-    top: 54.9%;
-    left: 80%;
+    top: 56.0%;
+    left: 83%;
     width: 250px;
     height: 20px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    font-size: 18px;
+    font-size: 13px;
     text-align: left;
     display: inline-block;
-    font-family: pokemon, sans-serif;
-    font-style: normal;
+    font-family: pokemon, -apple-system;
+    font-style: normal; 
 }
 
 #enemy-poke-header {
     position: absolute;
-    top: 15.9%;
-    left: 22.5%;
+    top: 17.0%;
+    left: 25%;
     width: 250px;
     height: 20px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    font-size: 18px;
+    font-size: 13px;
     text-align: left;
     display: inline-block;
-    font-family: pokemon, sans-serif;
+    font-family: pokemon, -apple-system;
     font-style: normal;
 }
 
