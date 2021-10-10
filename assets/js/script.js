@@ -411,7 +411,7 @@ var addBattle = function(event) {
         battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
     }
 
-    var boolean = battleRecords.some(obj => obj.name.includes(input));
+    var boolean = battleRecords.some(obj => obj.name == input);
 
     if (boolean) {
         for (i = 0; i < battleRecords.length; i++) {
