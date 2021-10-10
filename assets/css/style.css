@@ -37,6 +37,10 @@ body {
     font-size: 35px;
 }
 
+#color-white {
+    color: white;
+}
+
 #welcome-button {
     z-index: 1000;
 }
@@ -178,7 +182,7 @@ footer a {
     height: 20px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
     display: inline-block;
     font-family: pokemon, sans-serif;
@@ -193,7 +197,7 @@ footer a {
     height: 20px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
     display: inline-block;
     font-family: pokemon, sans-serif;
