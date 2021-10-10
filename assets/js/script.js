@@ -248,6 +248,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.attack;
                         $("#battle-header").text("You hit a normal attack for 20 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                     else if (dice > 5 && dice < 8) {
@@ -255,6 +256,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.effective;
                         $("#battle-header").text("You hit a super effective attack for 40 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                     else if (dice > 7 && dice < 10) {
@@ -262,6 +264,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.noteffective;
                         $("#battle-header").text("You hit a not very effective attack for 5 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                 })
@@ -306,6 +309,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a normal attack for 20 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -315,6 +319,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a super effective attack for 40 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -324,6 +329,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a not very effective attack for 5 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -366,6 +372,15 @@ var checkHealth = function() {
         $("#win-lose").text("You Win!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
+    }
+}
+// function that checks the health bars and changes colors accordingly
+var healthColor = function(health, query) {
+    if (health < 51 && health > 20) {
+        $(query).css("background-color", "#fae335");
+    }
+    else if (health <= 20) {
+        $(query).css("background-color", "#fb5636");
     }
 }
 // combines the user and enemy attacks and adds a delay
