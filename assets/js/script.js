@@ -377,10 +377,10 @@ var checkHealth = function() {
 // function that checks the health bars and changes colors accordingly
 var healthColor = function(health, query) {
     if (health < 51 && health > 20) {
-        $(query).css("background-color", "yellow");
+        $(query).css("background-color", "#fae335");
     }
     else if (health <= 20) {
-        $(query).css("background-color", "red");
+        $(query).css("background-color", "#fb5636");
     }
 }
 // combines the user and enemy attacks and adds a delay

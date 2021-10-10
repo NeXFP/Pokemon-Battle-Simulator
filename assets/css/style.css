@@ -150,7 +150,7 @@ footer a {
 
 #enemy-health {
     width: 100%;
-    background-color: green;
+    background-color: #6ef3a4;
     color: white;
     display: none;
     width: 120px;
@@ -161,7 +161,7 @@ footer a {
 
 #user-health {
     width: 100%;
-    background-color: green;
+    background-color: #6ef3a4;
     color: white;
     display: none;
     width: 120px;
