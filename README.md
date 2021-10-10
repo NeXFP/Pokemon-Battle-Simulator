@@ -18,7 +18,9 @@ We attempted to capture that nolstagic feeling that we all had playing Pokemon g
 
 ![battlerecords_screenshot](https://user-images.githubusercontent.com/89168938/136715461-0875ae29-1925-4e5c-aed5-776181379fdb.PNG)
 
+## Easter Eggs
 
+If you would like, you can open this website in Firefox and check the favicon for a surprise photo of a flying Ho-Oh.
 
 
 ## License
@@ -33,8 +35,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Questions 
 
-![Gio's GitHub](https://github.com/NeXFP)
+[Gio's GitHub](https://github.com/NeXFP)
 
-![Edgar's GitHub](https://github.com/ChidoGang)
+[Edgar's GitHub](https://github.com/ChidoGang)
 
-![Alex's GitHub](https://github.com/asadg7)
+[Alex's GitHub](https://github.com/asadg7)
