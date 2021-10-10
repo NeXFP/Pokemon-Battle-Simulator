@@ -26,8 +26,6 @@ var battleRecords = [];
 // Setting variables to check if the user won or lost for local storage purposes
 var userWon;
 var userLost;
-var wins = 0;
-var losses = 0;
 
 //create fetch request to display the 6 pokemon
 var fetchPokemon = function(poke) {
@@ -170,7 +168,6 @@ var selectPokemon = function(event) {
 }
 // function that allows the user to select the pokemon they want to battle and display it to the image
 var selectEnemy = function(event) {
-
     var target = event.target;
     var parent = target.parentElement;
     var imgSrc = $(target).attr("src");
@@ -251,6 +248,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.attack;
                         $("#battle-header").text("You hit a normal attack for 20 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                     else if (dice > 5 && dice < 8) {
@@ -258,6 +256,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.effective;
                         $("#battle-header").text("You hit a super effective attack for 40 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                     else if (dice > 7 && dice < 10) {
@@ -265,6 +264,7 @@ var userAttack = function(sides) {
                         enemyStats.health -= userStats.noteffective;
                         $("#battle-header").text("You hit a not very effective attack for 5 HP!");
                         $("#enemy-health").css("width", enemyStats.health + "%");
+                        healthColor(enemyStats.health, "#enemy-health");
                         checkHealth();
                     }
                 })
@@ -309,6 +309,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a normal attack for 20 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -318,6 +319,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a super effective attack for 40 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -327,6 +329,7 @@ var enemyAttack = function(sides) {
                         setTimeout (function() {
                             $("#battle-header").text("Your opponent hit a not very effective attack for 5 HP!");
                             $("#user-health").css("width", userStats.health + "%");
+                            healthColor(userStats.health, "#user-health");
                         }, 1000*2);
                         checkHealth();
                     }
@@ -356,7 +359,6 @@ var checkHealth = function() {
         //game over you lose
         userWon = false;
         userLost = true;
-        losses++;
         $(".main-section").hide();
         $("#win-lose").text("You Lose!");
         $(".game-over").css("display", "flex")
@@ -366,11 +368,19 @@ var checkHealth = function() {
         // game over you win!
         userWon = true;
         userLost = false;
-        wins++;
         $(".main-section").hide();
         $("#win-lose").text("You Win!");
         $(".game-over").css("display", "flex")
         $(".game-over").show();
+    }
+}
+// function that checks the health bars and changes colors accordingly
+var healthColor = function(health, query) {
+    if (health < 51 && health > 20) {
+        $(query).css("background-color", "#fae335");
+    }
+    else if (health <= 20) {
+        $(query).css("background-color", "#fb5636");
     }
 }
 // combines the user and enemy attacks and adds a delay
@@ -382,7 +392,6 @@ var fightSequence = function() {
     $("#attack-btn").off("click");
     setTimeout(function() {
         $("#attack-btn").on("click", fightSequence);
-        $("#attack-btn").css("background-color", "transparent");
     }, 1000*2.5);
 }
 // function that will take the user's name and save it to local storage along with their wins and losses
@@ -402,7 +411,7 @@ var addBattle = function(event) {
         battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
     }
 
-    var boolean = battleRecords.some(obj => obj.name.includes(input));
+    var boolean = battleRecords.some(obj => obj.name == input);
 
     if (boolean) {
         for (i = 0; i < battleRecords.length; i++) {
@@ -435,90 +444,25 @@ var addBattle = function(event) {
 
     $("#name-input").val("");
     saveBattle();
-    viewBattles();
+    window.location.href = "./battle_records.html";
 }
-
+// function to save the battle to local storage
 var saveBattle = function() {
     localStorage.setItem("Battle Records", JSON.stringify(battleRecords));
 }
 
-var viewBattles = function() {
-    $(".main-section").hide();
-    $(".game-over").hide();
-    $(".battle-records").show();
-
-    var newList = $("#record-ol");
-    newList.empty();
-
-    for (i = 0; i < battleRecords.length; i++) {
-        var newLi = $("<li></li>");
-        newLi.html(battleRecords[i].name + "</br> Wins: " + battleRecords[i].wins + " Losses: " + battleRecords[i].losses);
-        newLi.addClass("column is-12");
-        $(newList).append(newLi);
-    }
-
-}
-
-var clearStorage = function() {
-    localStorage.clear();
-    $("#record-ol").empty();
-}
-
-var generateList = function() {
-    battleRecords = JSON.parse(localStorage.getItem("Battle Records")) || [];
-    saveBattle();
-    $("#record-ol").empty();
-    viewBattles();
-}
-
-var playAgain = function() {
-    $("#show-poke").empty();
-    fetchAll();
-    userStats.health = 100;
-    enemyStats.health = 100;
-    $("#attack-btn").css("display", "none");
-    $("#user-poke-header").text("");
-    $("#enemy-poke-header").text("");
-    $("#user-health").css("display", "none");
-    $("#enemy-health").css("display", "none");
-    $("#user-health").css("width", "100%");
-    $("#enemy-health").css("width", "100%");
-    $("#battlefield").attr("src", "./assets/images/battlescreen_nottransparent.png");
-    var buttonOff = $("#show-poke").off("click");
-    if (buttonOff) {
-        $("#show-poke").on("click", selectPokemon);
-    }
-    $("#battle-header").text("Choose Your Pokémon!");
-    $(".main-section").show();
-    $(".battle-records").hide();
-}
-
-var deleteWelcome = function() {
-    $(".message").remove();
-    $(".hero-background").css("height", "90vh");
-}
-
+// function to make the first letter of a string uppercase
 var firstLetterUpper = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
-fetchAll();
 
+// fetch all the pokemon to begin the page
+fetchAll();
+// add click listeners to everything
 $("#show-poke").on("click", selectPokemon);
 
 $("#attack-btn").on("click", fightSequence);
 
 $("#name-click").on("click", addBattle);
-
-$("#clear-battles").on("click", clearStorage);
-
-$("#view-battles").on("click", generateList);
-
-$("#play-again").on("click", playAgain);
-
-$("#welcome-button").on("click", deleteWelcome);
-
-$("#user-poke-header").css("display", "inline-block");
-$("#enemy-poke-header").css("display", "inline-block");
-
 
 

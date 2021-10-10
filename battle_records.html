@@ -24,7 +24,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-danger" id="view-battles" href="battle_records.html">
+          <a class="button is-danger" id="view-battles">
             <strong>Battle Records</strong>
           </a>
         </div>
@@ -34,62 +34,16 @@
 
   <main>
 
-    <section class="fetch-modal">
-      <div class="modal" id="bad-fetch">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <div class="box">
-            <div class="content">
-              <p>The API Server could not be reached. </br> 
-              Please check your internet connection and try again.</p>
-            </div>
-          </div>
-        </div>
-        <button class="modal-close is-large" aria-label="close" id="close-fetch"></button>
-      </div>
-    </section>
-
-    <section class="input-modal">
-      <div class="modal" id="bad-input">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <div class="box">
-            <div class="content">
-              <p>You cannot leave your name blank!</p>
-            </div>
-          </div>
-        </div>
-        <button class="modal-close is-large" aria-label="close" id="close-input"></button>
-      </div>
-    </section>
-
-    <section class="main-section">
-      <div class="columns is-12 has-text-centered is-mobile" id="show-poke">
+    <section class="battle-records">
+      <div class="column is-12 has-text-centered">
+        <h5 id="list-header">Your Battle Records!</h5>
       </div>
       <div class="column is-12 has-text-centered">
-        <h3 id="battle-header">Choose Your Pokémon!</h3>
-      </div>
-      <div class="has-text-centered" id="place-poke">
-        <img src="./assets/images/battlescreen_nottransparent.png" id="battlefield"/>
-        <h4 id="enemy-poke-header"></h4>
-        <div id="hp-bar-enemy">
-          <span id="enemy-health"></span>
-        </div>
-        <h4 id="user-poke-header"></h4>
-        <div id="hp-bar-user">
-          <span id="user-health"></span>
-        </div>
-        <button id="attack-btn">Attack</button>
-      </div>
-    </section>
-
-    <section class="game-over">
-      <div class="column is-12 has-text-centered">
-        <h4 class="column is-12" id="win-lose"></h4>
-        <form class="column is-12" id="game-over-form">
-          <input id="name-input" type="text" autofocus="true" placeholder="Enter Your Name"/>
-          <button class="button is-danger" type="submit" id="name-click">Save Battle!</button>
-        </form>
+        <ol id="record-ol">
+          
+        </ol>
+        <button class="button is-danger" id="clear-battles">Clear Battles!</button>
+        <button class="button is-danger" id="play-again">Play Again!</button>
       </div>
     </section>
 
@@ -110,6 +64,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/records.js"></script>
 </body>
 </html>
