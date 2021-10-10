@@ -146,10 +146,10 @@ footer a {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: absolute;
-    top: 59.85%;
+    top: 59.75%;
     left: 76.9%;
-    width: 120px;
-    height: 10.5px;
+    width: 119.5px;
+    height: 10.8px;
 }
 
 #enemy-health {
@@ -168,8 +168,8 @@ footer a {
     background-color:#6ef3a4;
     color: white;
     display: none;
-    width: 120px;
-    height: 10.5px;
+    width: 119.5px;
+    height: 10.8px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -279,7 +279,7 @@ footer a {
         font-size: 12px;
     }
     #attack-btn {
-        font-size: 22px;
+        font-size: 16px;
         width: 350px;
         height: 60px;
         top: 85%;
@@ -288,24 +288,31 @@ footer a {
     #enemy-poke-header {
         width: 100px;
         height: 15px;
-        font-size: 12px;
+        font-size: 9px;
     }
     #enemy-poke-header {
-        left: 15%;
-        top: 16%;
+        left: 19%;
+        top: 16.8%;
     }
     #user-poke-header {
-        left: 73%;
+        left: 76%;
+        top: 55%;
     }
     #hp-bar-user,
     #hp-bar-enemy,
     #user-health,
     #enemy-health {
         width: 75px;
-        height: 10px;
+        height: 7.5px;
     }
     #hp-bar-user {
-        top: 58%;
+        top: 59%;
+    }
+    #hp-bar-enemy {
+        top: 21.65%;
+    }
+    .game-over {
+        margin-top: 0;
     }
 }
 
