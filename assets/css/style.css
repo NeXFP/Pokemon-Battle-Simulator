@@ -37,6 +37,11 @@ body {
     font-size: 35px;
 }
 
+#color-white {
+  color: white;
+
+}
+
 #welcome-button {
     z-index: 1000;
 }
